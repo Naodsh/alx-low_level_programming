@@ -89,7 +89,7 @@ void print_elf_info(Elf64_Ehdr *ehdr)
 int main(int argc, char *argv[])
 {
 	int fd;
-        char buffer[MAX_BUFFER_SIZE];
+	char buffer[MAX_BUFFER_SIZE];
 	ssize_t read_result;
 
 	if (argc != 2)
