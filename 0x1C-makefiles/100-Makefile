@@ -42,3 +42,5 @@ fclean: clean oclean
 
 # Rule to force recompilation of all source files
 re: fclean all
+
+.PHONY: all clean oclean fclean re
