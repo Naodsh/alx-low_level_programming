@@ -1,7 +1,7 @@
 #include "m.h"
 
 /**
- * print_school
+ * print_school - function that print
  *
  * Return: Nothing
  */
