@@ -12,32 +12,14 @@ OBJ = $(SRC:.c=.o)
 # Executable name
 NAME = school
 
-# Program to delete files
-RM = /bin/rm -f
-
 # Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
-
-# Rule to build the executable
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $@
-
-# Rule to clean up Emacs and Vim temporary files along with the executable
+.PHONY: all clean oclean fclean re
+all: m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 clean:
 	$(RM) *~ $(NAME)
-
-# Rule to delete object files
 oclean:
 	$(RM) $(OBJ)
-
-# Rule to delete all Emacs and Vim temporary files, the executable, and the object files
 fclean: clean oclean
-	$(RM) $(NAME)
-
-# Rule to force recompilation of all source files
-re: fclean all
-
-$(OBJ): %.o: %.c m.h
-	$(CC) $(CFLAGS) -c $< -o $@
+re: oclean all
