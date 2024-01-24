@@ -24,6 +24,10 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $@
 
+# Rule to build object files
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $@
+
 # Rule to clean up Emacs and Vim temporary files along with the executable
 clean:
 	$(RM) *~ $(NAME)
@@ -38,6 +42,3 @@ fclean: clean oclean
 
 # Rule to force recompilation of all source files
 re: fclean all
-
-$(OBJ): %.o: %.c m.h
-	$(CC) $(CFLAGS) -c $< -o $@
